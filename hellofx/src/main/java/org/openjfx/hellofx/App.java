@@ -5,7 +5,9 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -22,14 +24,16 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
 
-        Label label = new Label("Clcik the button!");
+        Label label = new Label("Hi! Write your name: ");
         Button button = new Button("Push Me");
-        button.setOnAction(actionEvent -> label.setText("Clicked"));
+        TextField name = new TextField();
+        button.setOnAction(actionEvent -> label.setText("Hi " + name.getText() + "!"));
         
         Button exitButton = new Button("Exit");
         exitButton.setOnAction(actionEvent -> { Platform.exit(); });
         
-        VBox vbox = new VBox(label, button, exitButton);
+        HBox hbox = new HBox(name, button);
+        VBox vbox = new VBox(label, hbox, exitButton);
         
         Scene scene = new Scene(new StackPane(vbox), 640, 480);
         stage.setScene(scene);
