@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 
 
 /**
@@ -34,6 +35,8 @@ public class App extends Application {
         
         HBox hbox = new HBox(name, button);
         VBox vbox = new VBox(label, hbox, exitButton);
+        vbox.setAlignment(Pos.CENTER);
+        hbox.setAlignment(Pos.CENTER);
         
         Scene scene = new Scene(new StackPane(vbox), 640, 480);
         stage.setScene(scene);
